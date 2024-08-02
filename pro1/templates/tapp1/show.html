@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<head>
+    {% block title %}
+    <title>Show</title>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Company</td>
+            <td>Email</td>
+            <td>Department</td>
+            <td>Date_Of_Joining</td>
+            <td>Status</td>
+            <td>Project_Domain</td>
+            <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+        {% for e in obj %}
+        <tr>
+            <td>{{e.id}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.company}}</td>
+            <td>{{e.email_id}}</td>
+            <td>{{e.department}}</td>
+            <td>{{e.dateOfJoining}}</td>
+            <td>{{e.status}}</td>
+            <td>{{e.projectDomain}}</td>
+            <td>
+                <a href="/pro1/uv/{{e.id}}/" class="btn btn-warning" onclick="return confirm('Do you want to Update this field')">Update</a>
+                <a href="/pro1/dv/{{e.id}}/" class="btn btn-danger" onclick="return confirm('Do you want to Delete this field')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+</body>
+</html>
